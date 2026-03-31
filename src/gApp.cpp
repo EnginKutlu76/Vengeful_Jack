@@ -7,6 +7,7 @@
 
 #include "gApp.h"
 #include "gCanvas.h"
+#include "mainMenu.h"
 
 
 gApp::gApp() {
@@ -19,7 +20,8 @@ gApp::~gApp() {
 }
 
 void gApp::setup() {
-	gCanvas* cnv = new gCanvas(this);
+	mainMenu* cnv = new mainMenu(this);
+	//gCanvas* cnv = new gCanvas(this);
 	appmanager->setCurrentCanvas(cnv);
 }
 

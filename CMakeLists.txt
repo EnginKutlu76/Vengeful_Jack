@@ -1,7 +1,7 @@
 cmake_minimum_required (VERSION 3.10.2)
 
 ########## PROJECT NAME ##########
-set(APP_NAME GlistApp)
+set(APP_NAME Vengeful_Jack)
 
 
 ########## USED PLUGINS LIST ##########
@@ -109,11 +109,13 @@ set(GlistApp_SOURCES
 		${APP_DIR}/src/main.cpp
 		${APP_DIR}/src/gApp.cpp
 		${APP_DIR}/src/gCanvas.cpp
+		${APP_DIR}/src/mainMenu.cpp
 )
 
 set(GlistApp_HEADERS
 		${APP_DIR}/src/gApp.h
 		${APP_DIR}/src/gCanvas.h
+		${APP_DIR}/src/mainMenu.h
 )
 
 add_executable(${APP_NAME}

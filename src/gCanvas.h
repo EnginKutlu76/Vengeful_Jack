@@ -11,6 +11,7 @@
 #include "gBaseCanvas.h"
 #include "gApp.h"
 #include "gImage.h"
+#include "gFont.h"
 
 
 class gCanvas : public gBaseCanvas {
@@ -37,9 +38,71 @@ public:
 	void showNotify();
 	void hideNotify();
 
+
+
 private:
+	static const int KEY_NONE = 0, KEY_W = 1, KEY_S = 2, KEY_D = 4, KEY_A = 8;
+	static const int trackframenum = 2;
+
+	void moveCharacter();
+	void moveCamera();
+	void drawCharacter();
+	void drawMap();
+	void trackAnimation();
+	void playAnimations();
+	void moveBullets();
+	void drawBullets();
+	void generateBullet(float bulletX, float bulletY, float bulletDx, float bulletDy, float bulletRotation, int bulletSender);
+
 	gApp* root;
-	gImage logo;
+
+	gImage map;
+	gImage tank1;
+	gImage track[trackframenum];
+	gImage gun;
+	gImage bulletimage;
+
+	gFont namefont;
+
+	//tank
+	float cx, cy;
+	int cw, ch;
+	int cwh, chh;
+	float cdx, cdy;
+	float cspeed;
+
+	float cangle;
+	float cangletr;
+	float canglegun;
+
+	int keystate;
+
+	float camx, camy;
+	float camw, camh;
+	float camleftlimit, camrightlimit, camtoplimit, cambottomlimit;
+
+	int mapw, maph;
+
+	//track
+	float tx, ty;
+	int tw, th;
+	int twh, thh;
+	float tdx, tdy;
+	int trackframeno;
+	int trackframecounter, trackframecounterlimit;
+
+	//gun
+	float gx, gy;
+	int gw, gh;
+	int gwh, ghh;
+	float gdx, gdy;
+
+
+	std::vector<std::vector<float>> bullets;
+	float muzzleangle, muzzledistance;
+
+	int fontx, fonty;
+	std::string name;
 };
 
 #endif /* GCANVAS_H_ */
